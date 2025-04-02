@@ -9,7 +9,6 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
-const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Middleware
@@ -343,4 +342,4 @@ app.post("/auth/send-order-email", async(req, res) => {
 app.use("/auth", authRoutes);
 app.use("/products", productRoutes);
 /* ✅ เริ่มต้นเซิร์ฟเวอร์ */
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(process.env.PORT || 5000, () => console.log(`🚀 Server running `));
