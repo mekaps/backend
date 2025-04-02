@@ -12,6 +12,12 @@
         "stripe": "^17.7.0"
     },
     "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview",
         "start": "node server.js"
+    },
+    "devDependencies": {
+        "vite": "^6.2.4"
     }
 }
