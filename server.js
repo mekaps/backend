@@ -24,6 +24,9 @@ mongoose
     .then(() => console.log("✅ MongoDB Connected"))
     .catch((error) => console.error("❌ MongoDB Connection Error:", error));
 
+app.get("/", (req, res) => {
+    res.send("Hello World! 🌍");
+});
 /* ✅ ดึงข้อมูลตะกร้าของผู้ใช้ */
 app.get("/cart/:email", async(req, res) => {
     const user = await User.findOne({ email: req.params.email });
