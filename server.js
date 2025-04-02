@@ -10,7 +10,12 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 app.use(bodyParser.json());
-
+mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log("MongoDB connected"))
+    .catch((err) => console.log("Error connecting to MongoDB", err));
 // Middleware
 const nodemailer = require("nodemailer"); // เพิ่มการ require Nodemailer
 app.use(express.json());
