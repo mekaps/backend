@@ -10,6 +10,10 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 app.use(bodyParser.json());
+
+const mongoURI = process.env.MONGO_URI || "mongodb+srv://Admin:1234@cluster0.gx3yn.mongodb.net/ecommerce";
+
+
 mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
